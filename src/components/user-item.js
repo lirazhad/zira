@@ -1,37 +1,40 @@
 import React from 'react';
-import { Avatar } from 'react-native-elements';
+import { Avatar, Card } from 'react-native-elements';
 import { View, Text, StyleSheet } from 'react-native';
 
 export const UserItem  = ({style, avatar, firstName, lastName, email}) => (
 <View style={styles.container}> 
     {/* avatar */}
-    <View>
+    <View style={styles.fieldStyle}>
         <Avatar
         rounded
-        source={{
-            uri:
-            'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        }}
+        source={{ uri: avatar }}
         />
     </View>
     {/* first name */}
-    <View>
-        <Text>{'first name'}</Text>
+    <View style={styles.fieldStyle}>
+        <Text>{firstName}</Text>
     </View>
     {/* last name */}
-    <View>
-         <Text>{'last name'}</Text>
+    <View style={styles.fieldStyle}>
+         <Text>{lastName}</Text>
     </View>
     {/* email */}
-    <View>
-         <Text>{'email'}</Text>
+    <View style={styles.fieldStyle}>
+         <Text>{email}</Text>
     </View>
   </View> 
 )
 
 const styles = StyleSheet.create({
     container: {
-      width: 100,
+      flexDirection: 'row',  
+      margin: 6, 
+      borderRadius: 6, 
+      alignItems: 'center',  
       backgroundColor: 'yellow'
+    },
+    fieldStyle: {
+        margin: 6
     }
   })

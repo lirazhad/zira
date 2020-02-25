@@ -12,7 +12,7 @@ const FEATURES_TAB_TEXT = 'Features'
 
 const Tab = createMaterialTopTabNavigator();
 
-const store = new SearchStore
+let store = new SearchStore
 
 function SettingsScreen() {
   return (
@@ -23,14 +23,13 @@ function SettingsScreen() {
 }
 
 
-export function RootNavigator() {
 
+export function RootNavigator() {
+  store.fetchUsersInfo(url)
   // define screens
   const HomeScreenComponent = () =>
   <HomeScreen data={store.users}/>
   
-  store.fetchUsersInfo(url)
-
   return (
     <NavigationContainer 
     onStateChange={(route)=>{console.warn(route['index'])}}>
