@@ -1,10 +1,14 @@
 import React from 'react';
-import { View } from 'react-native';
+import { View, FlatList, Text } from 'react-native';
+import { UserList } from '../components/user-list'
 
 export class HomeScreen extends React.Component {
     render(){
+        console.warn(this.props.data)
+        
         return (
-            <View style={{backgroundColor: 'red', width: 500, height: 500}}>
+            <View style={{backgroundColor: 'red', width: '100%', height: '100%'}}>
+            <UserList numOfColumns={1} data={this.props.data}/>
             </View> 
           )
     }
