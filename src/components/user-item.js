@@ -1,9 +1,10 @@
 import React from 'react';
 import { Avatar, Card } from 'react-native-elements';
 import { View, Text, StyleSheet } from 'react-native';
+import { colors } from '../constants/style-constants'
 
 export const UserItem  = ({style, avatar, firstName, lastName, email}) => (
-<View style={styles.container}> 
+<View style={[styles.container, style]}> 
     {/* avatar */}
     <View style={styles.fieldStyle}>
         <Avatar
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
       margin: 6, 
       borderRadius: 6, 
       alignItems: 'center',  
-      backgroundColor: 'yellow'
+      backgroundColor: colors.GRAY
     },
     fieldStyle: {
         margin: 6

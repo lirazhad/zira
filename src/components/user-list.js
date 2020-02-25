@@ -7,22 +7,30 @@ import { observer } from "mobx-react"
 @observer
 export class UserList extends React.PureComponent {
    
-
     render(){
-        const {data, numColumns} = this.props
+        const {data, numColumns, style} = this.props
 
+        console.warn(data)
         return(<FlatList
             data={data}
             renderItem={(userObj) => {
-              return(
-             //[1,3,12].includes(foo).includes(this.state.filter)&& this.state.filter.length > 0)?  
-             <UserItem 
-             firstName={userObj['item'][USER_FIRST_NAME]}
-             lastName={userObj['item'][USER_LAST_NAME]}
-             email={userObj['item'][USER_EMAIL]}
-             avatar={userObj['item'][USER_AVATAR_LINK]}
-            />)
-            }}
+              const userFirstName = userObj['item'][USER_FIRST_NAME] 
+              const userLastName = userObj['item'][USER_LAST_NAME]
+              const userEmail = userObj['item'][USER_EMAIL]
+              const userAvater = userObj['item'][USER_AVATAR_LINK]
+
+                return(
+                <UserItem 
+                firstName={userFirstName}
+                lastName={userLastName}
+                email={userEmail}
+                avatar={userAvater}
+                style={style}
+                />)
+              
+            
+            }
+            }
             numColumns={numColumns}
             keyExtractor={(item, index) => index.toString()}
             />)

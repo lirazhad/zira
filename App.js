@@ -28,7 +28,7 @@ import {
 const App: () => React$Node = () => {
   return (
     <View style={{height: '100%', width: '100%'}}>
-        <View style={{height: 70, width: '100%', backgroundColor: 'red'}}/>
+        <View style={{height: 50, width: '100%'}}/>
         <RootNavigator/>
         </View>
   );
