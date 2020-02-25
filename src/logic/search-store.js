@@ -3,7 +3,9 @@ import { getData } from '../api/api-call'
 
 export class SearchStore {
 
-    @observable users = ['a', 'b', 'c'];
+    user ={}
+
+    @observable users = [];
 
     searchHeaderTextInput
 
@@ -13,11 +15,10 @@ export class SearchStore {
 
 
    async fetchUsersInfo(url){
-       // this.users = getData(url)
+    
+    const data = await getData(url)
+    console.warn(data)
 
-        for (i = 0; i < 10; i++) {
-            await this.users.push('ss')
-         }
     }
      
 }

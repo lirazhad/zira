@@ -1,14 +1,17 @@
 import * as axios from 'axios';
 
-//'https://reqres.in/api/users'
-export const getData = (url) => {
 
-    axios.get(url)
+export async function getData(url){
+
+    let res
+
+    await axios.get(url)
     .then(function (response) {
-      console.log(response);
+      res = response
     })
-    .catch(function (error) {
-      console.log(error);
+    .catch(async function (error) {
+      res = error
+
     });
-  
+    return res
 } 

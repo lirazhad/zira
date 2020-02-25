@@ -1,44 +1,37 @@
-export const UserItem  = ({style, avatar, firstName, lastName, email}) => (
+import React from 'react';
+import { Avatar } from 'react-native-elements';
+import { View, Text, StyleSheet } from 'react-native';
 
-<View style={[styles.container, style]}>
+export const UserItem  = ({style, avatar, firstName, lastName, email}) => (
+<View style={styles.container}> 
     {/* avatar */}
     <View>
-        
+        <Avatar
+        rounded
+        source={{
+            uri:
+            'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
+        }}
+        />
     </View>
     {/* first name */}
     <View>
-        
+        <Text>{'first name'}</Text>
     </View>
     {/* last name */}
     <View>
-        
+         <Text>{'last name'}</Text>
     </View>
     {/* email */}
     <View>
-        
+         <Text>{'email'}</Text>
     </View>
-</View>
+  </View> 
 )
 
 const styles = StyleSheet.create({
     container: {
-      marginTop: '5%',
-      height: '100%',
-      width: '100%',
-    },
-    textContainer: {
-      marginTop: '10%',
-      paddingHorizontal: spacing.PAGE_MARGIN_HORIZONTAL,
-      flexDirection: 'column',
-      justifyContent: 'center',
-      height: '30%',
-    },
-    textStyle: {
-      marginTop: spacing.ELEMENT_VERTICAL_SPACE,
-      textAlign: 'center',
-    },
-    animation: {
-      alignSelf: 'center',
-      height: '68%',
-    },
+      width: 100,
+      backgroundColor: 'yellow'
+    }
   })
