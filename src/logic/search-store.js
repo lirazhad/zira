@@ -1,4 +1,4 @@
-import { autorun,  observable, action, computed } from 'mobx'
+import { autorun,  observable, action, reaction } from 'mobx'
 import { getData } from '../api/api-call'
 import { 
     DATA, 
@@ -11,13 +11,26 @@ export class SearchStore {
 
     @observable users = []
     @observable state = REQUEST_STATE_PANDDING
+
     @observable searchHeaderTextInput1 
     @observable searchHeaderTextInput2
 
     @observable homeUsers = []
     @observable featuresUsers = []
 
-    screenType = 0
+    @observable screenType = 0
+
+
+    constructor(){
+
+        const reaction2 = reaction(
+            () => this.screenType,
+            () => {
+                searchHeaderTextInput1 = ''
+            }
+        )
+
+    }
 
     @action 
     async filterList(text) {
@@ -46,17 +59,14 @@ export class SearchStore {
     @action 
     onChangeText = (text) =>{
         if(this.screenType === 0){
-          this.searchHeaderTextInput1 = text;  
-        }else{
-          this.searchHeaderTextInput2 = text; 
-        } 
-        console.warn(this.searchHeaderTextInput1)
+            this.searchHeaderTextInput1 = text;  
+          }else{
+            this.searchHeaderTextInput2 = text; 
+          } 
         this.filterList(text)
     }
 
     
-   
-
    @action
    async fetchUsersInfo(url){
     this.users = []

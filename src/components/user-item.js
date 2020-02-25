@@ -1,26 +1,22 @@
 import React from 'react';
-import { Avatar, Card } from 'react-native-elements';
+import { Avatar } from 'react-native-elements';
 import { View, Text, StyleSheet } from 'react-native';
-import { colors } from '../constants/style-constants'
+import { colors,  SMALL_MARGIN} from '../constants/style-constants'
 
 export const UserItem  = ({style, avatar, firstName, lastName, email}) => (
 <View style={[styles.container, style]}> 
-    {/* avatar */}
     <View style={styles.fieldStyle}>
         <Avatar
         rounded
         source={{ uri: avatar }}
         />
     </View>
-    {/* first name */}
     <View style={styles.fieldStyle}>
         <Text>{firstName}</Text>
     </View>
-    {/* last name */}
     <View style={styles.fieldStyle}>
          <Text>{lastName}</Text>
     </View>
-    {/* email */}
     <View style={styles.fieldStyle}>
          <Text>{email}</Text>
     </View>
@@ -29,13 +25,14 @@ export const UserItem  = ({style, avatar, firstName, lastName, email}) => (
 
 const styles = StyleSheet.create({
     container: {
+      flex: 1,
       flexDirection: 'row',  
-      margin: 6, 
+      margin: SMALL_MARGIN, 
       borderRadius: 6, 
       alignItems: 'center',  
       backgroundColor: colors.GRAY
     },
     fieldStyle: {
-        margin: 6
+        margin: SMALL_MARGIN
     }
   })

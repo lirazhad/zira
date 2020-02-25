@@ -2,16 +2,17 @@ import React from 'react';
 import { View, FlatList, Text } from 'react-native';
 import { UserList } from '../components/user-list'
 import { observer } from "mobx-react"
-import { SearchStore } from '../logic/search-store'
+
+const NUM_OF_COLUMNS_GRID = 3
 @observer
 export class FeaturedScreen extends React.Component {
     render(){
         return (
-            <View style={{ width: '100%', height: '100%'}}>
+            <View>
             <UserList 
-            numOfColumns={3} 
+            numColumns={NUM_OF_COLUMNS_GRID} 
             data={this.props.data}
-            style={{flexDirection: 'row'}}/>
+            style={{flexDirection: 'column'}}/>
             </View> 
           )
     }

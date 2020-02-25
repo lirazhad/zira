@@ -2,15 +2,17 @@ import React from 'react';
 import { View } from 'react-native';
 import { UserList } from '../components/user-list'
 import { observer } from "mobx-react"
+
+const NUM_OF_COLUMNS_LIST = 1
 @observer
 export class HomeScreen extends React.Component {
     render(){
         return (
-            <View style={{ width: '100%', height: '100%'}}>
+            <View>
             <UserList 
-            numOfColumns={1} 
+            numColumns={NUM_OF_COLUMNS_LIST} 
             data={this.props.data} 
-            style={{flexDirection: 'column'}}/>
+            style={{flexDirection: 'row'}}/>
             </View> 
           )
     }
