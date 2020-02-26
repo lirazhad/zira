@@ -10,9 +10,14 @@ import {
   ICON_SIZE 
 } from '../constants/style-constants'
 import Icon from 'react-native-vector-icons/FontAwesome';
+import { observer } from "mobx-react"
 
+@observer
+export class  SearchHeader extends React.Component{
 
-const SearchHeader  = ({onChangeText, value}) => (
+  render(){
+    const {onChangeText, homeScreenValue, featureSreenValue, screenType} = this.props
+    return(
   <View style={styles.container}>
      <View style={styles.icon}>
      <Icon name="search" size={ICON_SIZE}/>
@@ -22,15 +27,15 @@ const SearchHeader  = ({onChangeText, value}) => (
         autoCorrect={false}
         style={styles.inputStyle}
         onChangeText={onChangeText} 
-        value={value}
+        value={screenType === 0? homeScreenValue: featureSreenValue}
         autoCapitalize = 'none'
         />
-  </View>
-)
+  </View>)
+  }
+}
 
 const styles = StyleSheet.create({
   container: {
-
     height: HEADER_HEIGHT,
     flexDirection: 'row',
     justifyContent: 'center',
@@ -43,7 +48,6 @@ const styles = StyleSheet.create({
     paddingHorizontal: STANDART_PADDING,
     fontSize: FONT_SIZE,
     lineHeight: 17,
-    height: '100%'
     },
     icon:{
       flex: 1, 
