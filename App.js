@@ -26,6 +26,7 @@ import {
  import { RootNavigator } from './src/navigation/root-navigator'
 
 const App: () => React$Node = () => {
+  console.disableYellowBox = true
   return (
     <View style={styles.mainContainer}>
         <View style={styles.topMargin}/>
