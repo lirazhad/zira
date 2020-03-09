@@ -1,2 +1,6 @@
 export * from './featured-screen'
 export * from './home-screen'
+export * from './add-post-screen'
+export * from './main-screen'
+export * from './dashboard-screen'
+export * from './followers-screen'
